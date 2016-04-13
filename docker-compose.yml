@@ -1,0 +1,16 @@
+version: "2"
+services:
+    db:
+        image: mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: passw0rd
+        volumes:
+            - ./data:/var/lib/mysql
+    onebody:
+        build: .
+        links:
+            - db
+        volumes:
+            - .:/app
+        ports:
+            - "3000:3000"
