@@ -7,7 +7,7 @@ ADD . /app
 WORKDIR /app
 RUN gem install bundler
 RUN bundle install
-CMD rake db:create db:schema:load db:seed && rails server
+CMD rake db:create db:schema:load db:seed && rails server -b 0.0.0.0
 
 VOLUME /app
 EXPOSE 3000
